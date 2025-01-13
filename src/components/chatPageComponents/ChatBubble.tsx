@@ -1,8 +1,8 @@
 import ChatAvatar, { Member } from "./ChatAvatar";
 
-const ChatBubble = ({ member, }: { member: Member }) => {
+const ChatBubble = ({ member,index }: { member: Member, index: number }) => {
   return (
-    <div className="flex items-start space-x-3">
+    <div className="flex items-start space-x-3 mb-1 ">
       <ChatAvatar
         member={{
           id: member.id,
@@ -12,13 +12,13 @@ const ChatBubble = ({ member, }: { member: Member }) => {
           status: "online",
         }}
       />
-      <div>
-        <div className="flex items-center space-x-2">
-          <span className="text-white font-medium">Random person</span>
-          <span className="text-gray-400 text-sm">7 pm</span>
+      <div className="w-full">
+        <div className="flex items-center space-x-2 justify-between">
+          <span className="text-white text-base">Random person {`${index}`}</span>
+          <span className="text-gray-400 text-base">7:30 pm</span>
         </div>
-        <p className="text-gray-300">
-            copilot is dope with claude 3.5 sonnet and chatGPT O1, but i can't afford it...😔      
+        <p className="text-white/80 text-sm">
+            copilot is dope with claude 3.5 sonnet and chatGPT O1, but i can't afford ittttttttttttttttttttttttt...😔      
         </p>
       </div>  
     </div>

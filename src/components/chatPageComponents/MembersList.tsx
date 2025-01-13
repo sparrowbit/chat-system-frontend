@@ -44,8 +44,8 @@ const MembersList = ({
     <div
       className={`
         fixed inset-y-0 right-0 z-30 w-72 bg-gray-900 transform transition-transform duration-300 ease-in-out
-        md:relative md:transform-none
-        ${isOpen ? "translate-x-0" : "translate-x-full"}
+        md:relative md:transform-none 
+        ${isOpen ? "translate-x-0 block" : "translate-x-full hidden"}
       `}
     >
       <div className="p-4">

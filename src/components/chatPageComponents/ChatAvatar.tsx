@@ -18,7 +18,7 @@ const ChatAvatar: React.FC<ChatAvatarProps> = ({ member }) => {
         <img
           src={member.avatar}
           alt={member.name}
-          className="w-8 h-8 rounded-full"
+          className="w-10 h-10 rounded-full"
         />
         <div
           className={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-gray-900 ${

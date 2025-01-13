@@ -10,7 +10,7 @@ const ChatBoxes = ({
   const channels: Channel[] = [
     {
       id: "1",
-      name: "Random Chat",
+      name: "Random Chat 1",
       type: "text",
       lastMessage: "random message you received",
       timestamp: "2m ago",
@@ -19,7 +19,7 @@ const ChatBoxes = ({
     },
     {
       id: "2",
-      name: "Random Chat",
+      name: "Random Chat 2",
       type: "group",
       participants: 8,
       lastMessage: "random message you received",
@@ -29,7 +29,7 @@ const ChatBoxes = ({
     },
     {
       id: "3",
-      name: "Random Chat",
+      name: "Random Chat 3",
       type: "group",
       participants: 12,
       lastMessage: "random message you received",
@@ -40,11 +40,11 @@ const ChatBoxes = ({
   ];
 
   return (
-    <div className="h-screen bg-gray-800 flex flex-col w-full sm:w-72 2xl:w-[420px] flex-shrink-0">
+    <div className="h-screen bg-[#2A2D37] flex flex-col w-full sm:w-72 2xl:w-[420px] flex-shrink-0">
       {/* Header */}
-      <div className="p-4 border-b border-gray-700">
-        <div className="text-xl text-white font-semibold mb-4">Chats</div>
-        <div className="bg-gray-800 rounded-lg p-2 flex items-center">
+      <div className="p-4 ">
+        {/* <div className="text-xl text-white font-semibold mb-4">Chats</div> */}
+        <div className="bg-[#3E4252] rounded-lg p-2 flex items-center">
           <Search className="w-5 h-5 text-gray-400 flex-shrink-0" />
           <input
             type="text"
@@ -59,7 +59,7 @@ const ChatBoxes = ({
         {channels.map((channel) => (
           <div
             key={channel.id}
-            className="p-4 border-b border-gray-800 hover:bg-gray-800 cursor-pointer"
+            className="p-4 border-b border-gray-800 hover:bg-[#3E4252] cursor-pointer"
             onClick={() => onChannelSelect(channel)}
           >
             <div className="flex items-center space-x-3">
