@@ -14,20 +14,19 @@ const SignupPage = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState<SignupFormData>({
-    name: "",
-    email: "",
-    password: "",
+    name: "client",
+    email: "client@g.c",
+    password: "client",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    try {
-      await createUser({name:formData.name, email: formData.email, password: formData.password });
+
+     const res = await createUser({name:formData.name, email: formData.email, password: formData.password });
+     console.log('RES', res);
+     if (res)
       navigate('/');
-    } catch (error) {
-      console.log(error);
-    }
+
     
     setFormData({
       name: "",
@@ -47,7 +46,7 @@ const SignupPage = () => {
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
 
       <div className="w-full max-w-md">
-        <div className="bg-gray-900/30 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-800">
+        <div className="bg-gray-800/25 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-800">
 
           <h2 className="text-2xl text-white text-center font-semibold mb-2">
             Welcome
@@ -55,7 +54,7 @@ const SignupPage = () => {
           <p className="text-gray-400 text-center mb-8">
             Already have a account?{" "}
             <Link to='/' className="text-blue-500 hover:text-blue-400">
-              Sing up
+              Login
             </Link>
           </p>
 
@@ -69,7 +68,7 @@ const SignupPage = () => {
                 onChange={handleChange}
                 placeholder="Username"
                 required
-                className="w-full bg-gray-800 text-white rounded-lg pl-10 pr-4 py-3 border border-gray-700 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full bg-black text-white rounded-lg pl-10 pr-4 py-3 border border-gray-700 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 
@@ -82,7 +81,7 @@ const SignupPage = () => {
                 onChange={handleChange}
                 placeholder="email address"
                 required
-                className="w-full bg-gray-800 text-white rounded-lg pl-10 pr-4 py-3 border border-gray-700 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full bg-black text-white rounded-lg pl-10 pr-4 py-3 border border-gray-700 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 
@@ -95,7 +94,7 @@ const SignupPage = () => {
                 onChange={handleChange}
                 placeholder="Password"
                 required
-                className="w-full bg-gray-800 text-white rounded-lg pl-10 pr-4 py-3 border border-gray-700 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full bg-black text-white rounded-lg pl-10 pr-4 py-3 border border-gray-700 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 

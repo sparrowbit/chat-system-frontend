@@ -1,12 +1,12 @@
 import { Search } from "lucide-react";
 import { Channel } from "../../pages/ChatPage";
 import ChatAvatar from "./ChatAvatar";
+import {useQueries} from '@tanstack/react-query'
 
-const ChatBoxes = ({
-  onChannelSelect,
-}: {
-  onChannelSelect: (channel: Channel) => void;
-}) => {
+const ChatBoxes = ({ onChannelSelect }: { onChannelSelect: (channel: Channel) => void }) => {
+
+  
+
   const channels: Channel[] = [
     {
       id: "1",
@@ -55,7 +55,7 @@ const ChatBoxes = ({
       </div>
 
       {/* Contacts List */}
-      <div className="flex-1 overflow-y-scroll overflow-x-hidden">
+      <div className="flex-1 overflow-y-scroll ">
         {channels.map((channel) => (
           <div
             key={channel.id}

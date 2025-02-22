@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Lock, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 // import { useQueries, useMutation } from "@tanstack/react-query";
 import { loginUser } from "../../api/authAPIs";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUserContext } from "@/context/features/userSlice";
 
 interface LoginFormData {
   email: string;
@@ -13,21 +15,30 @@ interface LoginFormData {
 
 const LoginPage = () => {
 
+  // useEffect(() => {
+  //   window.addEventListener('unload', (e) => {
+  //     // e.preventDefault();
+  //     window.alert('Please logout before leaving the page');
+  //     navigator.sendBeacon('http://localhost:3000/logout', JSON.stringify({ email: 'fje'}));
+  //   })
+  // }, []);
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState<LoginFormData>({
-    email: "",
-    password: "",
+    email: "client@g.c",
+    password: "client",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      await loginUser({ email: formData.email, password: formData.password });
+
+      const response = await loginUser({ email: formData.email, password: formData.password });
+      console.log(response);
+      dispatch(addUserContext(response));
       navigate('/');
-    } catch (error) {
-      console.error('Login error:', error);
-    }
+
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,10 +48,11 @@ const LoginPage = () => {
     }));
   };
 
+
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="bg-gray-700/25 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-800">
+        <div className="bg-gray-800/25 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-800">
           
           <h2 className="text-2xl text-white text-center font-semibold mb-2">
             Welcome Back
